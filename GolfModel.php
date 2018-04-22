@@ -204,7 +204,7 @@
 			return $this->error;
 		}
 		
-		public function updateTaskCompletionStatus($id, $status) {
+		public function updateGameCompletionStatus($id, $status) {
 			$this->error = "";
 			
 			if (!$this->user) {
