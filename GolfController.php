@@ -16,7 +16,7 @@
 			$this->model = new GolfModel();
 			$this->views = new GolfView();
 			
-			$this->view = $_GET['view'] ? $_GET['view'] : 'golflist';
+			$this->view = $_GET['view'] ? $_GET['view'] : 'loginform';
 			$this->action = $_POST['action'];
 		}
 		
@@ -67,10 +67,10 @@
 				case 'loginform': 
 					print $this->views->loginFormView($this->data, $this->message);
 					break;
-				case 'golfform':
+				case 'gameform':
 					print $this->views->gameFormView($this->model->getUser(), $this->data, $this->message);
 					break;
-				default: // 'gamelistf'
+				default: // 'golflist'
 					list($orderBy, $orderDirection) = $this->model->getOrdering();
 					list($games, $error) = $this->model->getGames();
 					if ($error) {
@@ -108,7 +108,7 @@
 			
 			list($success, $message) = $this->model->login($loginID, $password);
 			if ($success) {
-				$this->view = 'golflist';
+				$this->view = 'gamelist';
 			} else {
 				$this->message = $message;
 				$this->view = 'loginform';
@@ -122,7 +122,7 @@
 			if ($error = $this->model->deleteGame($_POST['id'])) {
 				$this->message = $error;
 			}
-			$this->view = 'golflist';
+			$this->view = 'gamelist';
 		}
 		
 		private function handleSetCompletionStatus($status) {
@@ -131,21 +131,21 @@
 			if ($error = $this->model->updateGameCompletionStatus($_POST['id'], $status)) {
 				$this->message = $error;
 			}
-			$this->view = 'golflist';
+			$this->view = 'gamelist';
 		}
 		
 		private function handleAddGame() {
 			if (!$this->verifyLogin()) return;
 			
 			if ($_POST['cancel']) {
-				$this->view = 'golflist';
+				$this->view = 'gamelist';
 				return;
 			}
 			
 			$error = $this->model->addGame($_POST);
 			if ($error) {
 				$this->message = $error;
-				$this->view = 'golfform';
+				$this->view = 'gameform';
 				$this->data = $_POST;
 			}
 		}
@@ -156,29 +156,29 @@
 			list($game, $error) = $this->model->getGame($_POST['id']);
 			if ($error) {
 				$this->message = $error;
-				$this->view = 'golflist';
+				$this->view = 'gamelist';
 				return;
 			}
 			$this->data = $game;
-			$this->view = 'golfform';
+			$this->view = 'gameform';
 		}
 		
 		private function handleUpdateGame() {
 			if (!$this->verifyLogin()) return;
 			
 			if ($_POST['cancel']) {
-				$this->view = 'golflist';
+				$this->view = 'gamelist';
 				return;
 			}
 			
 			if ($error = $this->model->updateGame($_POST)) {
 				$this->message = $error;
-				$this->view = 'golfform';
+				$this->view = 'gameform';
 				$this->data = $_POST;
 				return;
 			}
 			
-			$this->view = 'golflist';
+			$this->view = 'gamelist';
 		}
 	}
 ?>

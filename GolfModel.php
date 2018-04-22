@@ -195,7 +195,7 @@
 			$descriptionEscaped = $this->mysqli->real_escape_string($description);
 			$userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
 
-			$sql = "INSERT INTO golf (title, description, category, addDate, userID) VALUES ('$titleEscaped', '$descriptionEscaped', '$categoryEscaped', NOW(), $userIDEscaped)";
+			$sql = "INSERT INTO tasks(title, description, category, addDate, userID) VALUES ('$titleEscaped', '$descriptionEscaped', '$categoryEscaped', NOW(), $userIDEscaped)";
 	
 			if (! $result = $this->mysqli->query($sql)) {
 				$this->error = $this->mysqli->error;
@@ -222,7 +222,7 @@
 			} else {
 				$idEscaped = $this->mysqli->real_escape_string($id);
 				$userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
-				$sql = "UPDATE golf SET completedDate = $completedDate WHERE userID = $userIDEscaped AND id = '$idEscaped'";
+				$sql = "UPDATE tasks SET completedDate = $completedDate WHERE userID = $userIDEscaped AND id = '$idEscaped'";
 				if (! $result = $this->mysqli->query($sql) ) {
 					$this->error = $this->mysqli->error;
 				}
@@ -264,7 +264,7 @@
 			$descriptionEscaped = $this->mysqli->real_escape_string($description);
 			$categoryEscaped = $this->mysqli->real_escape_string($category);
 			$userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
-			$sql = "UPDATE golf SET title='$titleEscaped', description='$descriptionEscaped', category='$categoryEscaped' WHERE userID = $userIDEscaped AND id = $idEscaped";
+			$sql = "UPDATE tasks SET title='$titleEscaped', description='$descriptionEscaped', category='$categoryEscaped' WHERE userID = $userIDEscaped AND id = $idEscaped";
 			if (! $result = $this->mysqli->query($sql) ) {
 				$this->error = $this->mysqli->error;
 			} 
@@ -292,7 +292,7 @@
 		
 			$idEscaped = $this->mysqli->real_escape_string($id);
 			$userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
-			$sql = "DELETE FROM golf WHERE userID = $userIDEscaped AND id = $idEscaped";
+			$sql = "DELETE FROM tasks WHERE userID = $userIDEscaped AND id = $idEscaped";
 			if (! $result = $this->mysqli->query($sql) ) {
 				$this->error = $this->mysqli->error;
 			}
