@@ -6,7 +6,7 @@
 
 	require('User.php');
 
-	class GamesModel {
+	class GolfModel {
 		private $error = '';
 		private $mysqli;
 		private $orderBy = 'title';
@@ -134,7 +134,7 @@
 			return array($games, $this->error);
 		}
 		
-		public function getGames($id) {
+		public function getGame($id) {
 			$this->error = '';
 			$game = null;
 			
