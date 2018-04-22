@@ -12,7 +12,7 @@
 
 		}
 		
-		public function taskListView($user, $games, $orderBy = 'title', $orderDirection = 'asc', $message = '') {
+		public function gameListView($user, $games, $orderBy = 'title', $orderDirection = 'asc', $message = '') {
 			$body = "<h1>GOLF for {$user->firstName} {$user->lastName}</h1>\n";
 		
 			if ($message) {
@@ -77,7 +77,7 @@
 			return $this->page($body);
 		}
 		
-		public function taskFormView($user, $data = null, $message = '') {
+		public function gameFormView($user, $data = null, $message = '') {
 			$category = '';
 			$title = '';
 			$description = '';
