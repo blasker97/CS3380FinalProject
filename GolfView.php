@@ -2,7 +2,7 @@
 
 	class GolfView {
 		private $stylesheet = 'GolfStyleSheet.css';
-		private $pageTitle = 'GOLF';
+		private $pageTitle = 'Golf Tracker';
 		
 		public function __construct() {
 
@@ -19,10 +19,10 @@
 				$body .= "<p class='message'>$message</p>\n";
 			}
 		
-			$body .= "<p><a class='taskButton' href='index.php?view=gameform'>+ Add Task</a> <a class='taskButton' href='index.php?logout=1'>Logout</a></p>\n";
+			$body .= "<p><a class='taskButton' href='index.php?view=gameform'>+ Add Game</a> <a class='taskButton' href='index.php?logout=1'>Logout</a></p>\n";
 	
 			if (count($games) < 1) {
-				$body .= "<p>No GOLFS to display!</p>\n";
+				$body .= "<p>No games to display!</p>\n";
 				return $this->page($body);
 			}
 	
@@ -135,7 +135,7 @@ EOT2;
 				$loginID = $data['loginid'];
 			}
 		
-			$body = "<h1>Tasks</h1>\n";
+			$body = "<h1>Golf Tracker :)</h1>\n";
 			
 			if ($message) {
 				$body .= "<p class='message'>$message</p>\n";
@@ -144,9 +144,9 @@ EOT2;
 			$body .= <<<EOT
 <form action='index.php' method='post'>
 <input type='hidden' name='action' value='login' />
-<p>User ID<br />
+<p>Username<br />
   <input type="text" name="loginid" value="$loginID" placeholder="login id" maxlength="255" size="80"></p>
-<p>Title<br />
+<p>Password<br />
   <input type="password" name="password" value="" placeholder="password" maxlength="255" size="80"></p>
   <input type="submit" name='submit' value="Login">
 </form>	
@@ -172,7 +172,7 @@ EOT;
 </head>
 <body>
 $body
-<p>&copy; 2018 GOLFS. All rights reserved.</p>
+<p>&copy; 2018 Golf Tracker Incoporated. All rights reserved.</p>
 </body>
 </html>
 EOT;
