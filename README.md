@@ -19,8 +19,10 @@ This application, *Golf Tracker*, was built to serve a golf club to keep records
 ```SQL
 CREATE TABLE users (
   id int NOT NULL AUTO_INCREMENT,
-  loginID varchar(64) NOT NULL,
-  password varchar(64) NOT NULL,
+  loginID varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  firstName varchar(128) NOT NULL,
+  lastName varchar(128) NOTNULL
 )
 ```
 
@@ -28,7 +30,7 @@ CREATE TABLE users (
 ```SQL
 CREATE TABLE games (
   id int NOT NULL AUTO_INCREMENT,
-  addDate NOW(),
+  addDate datetime,
   userID int NOT NULL,
   hole1 int NOT NULL,
   hole2 int NOT NULL,
