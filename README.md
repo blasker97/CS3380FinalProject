@@ -44,16 +44,16 @@ CREATE TABLE games (
 )
 ```
 
-### ERD: 
+### ERD: [Entity Relationship Diagram](https://github.com/blasker97/CS3380FinalProject/blob/master/GolfERD.png)
 
 ### Explanation of where the app is doing create, read, update, and delete
-* Create
+* Create: The user can *create* new records (enter data for recently played rounds) via a form launched by clicking on the **Add Game** button.
 
-* Read
+* Read: The user can read data back through the game history page. There the user can order the rounds by date played, hole(1-9) score, and total score.
 
-* Update
+* Update: The user can *update* records (adjust scores on individual holes) via the round's corresponding **Edit** button on the game history page.
 
-* Delete
+* Delete: The user can *delete* records (data for previously entered rounds) by clicking on the round's **Delete** button on the game history page.
 
 
 ### Video: 
