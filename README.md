@@ -49,12 +49,34 @@ CREATE TABLE games (
 ### Explanation of where the app is doing create, read, update, and delete
 * Create: The user can *create* new records (enter data for recently played rounds) via a form launched by clicking on the **Add Game** button.
 
+SQL statement for Creating a game: 
+```SQL
+INSERT INTO games(hole1, hole2, hole3, hole4, hole5, hole6, hole7, hole8, hole9, addDate, userID) VALUES ('$hole1Escaped', '$hole2Escaped', '$hole3Escaped', '$hole4Escaped', '$hole5Escaped', '$hole6Escaped', '$hole7Escaped', '$hole8Escaped', '$hole9Escaped', NOW(), '$userIDEscaped')
+```
+
 * Read: The user can read data back through the game history page. There the user can order the rounds by date played, hole(1-9) score, and total score.
 
+SQL statement for Reading Totals: 
+```SQL
+SELECT * FROM games WHERE userID = $userIDEscaped GROUP BY id ORDER BY SUM(hole1 + hole2 + hole3 + hole4 + hole5 + hole6 + hole7 + hole8 + hole9) $orderDirectionEscaped
+```
+SQL statement for Reading a Game:
+```SQL
+SELECT * FROM games WHERE userId = '$userIDEscaped' AND id = '$idEscaped' ORDER BY '$userIDEscaped' 
+```
 * Update: The user can *update* records (adjust scores on individual holes) via the round's corresponding **Edit** button on the game history page.
+
+SQL statement for Updating a game: 
+```SQL
+UPDATE games SET hole1 = '$hole1Escaped', hole2 = '$hole2Escaped', hole3 = '$hole3Escaped', hole4 = '$hole4Escaped', hole5 = '$hole5Escaped', hole6 = '$hole6Escaped', hole7 = '$hole7Escaped', hole8 = '$hole8Escaped', hole9 = '$hole9Escaped'  WHERE userID = $userIDEscaped AND id = $idEscaped;
+```
 
 * Delete: The user can *delete* records (data for previously entered rounds) by clicking on the round's **Delete** button on the game history page.
 
+SQL statement for Deleting a game: 
+```SQL
+DELETE FROM games WHERE userID = $userIDEscaped AND id = $idEscaped
+```
 
 ### Video: 
 
