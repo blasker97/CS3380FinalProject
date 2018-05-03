@@ -79,5 +79,5 @@ SQL statement for Deleting a game:
 DELETE FROM games WHERE userID = $userIDEscaped AND id = $idEscaped;
 ```
 
-### Video: 
+### Video: [Golf Tracker Demonstration Video](https://www.youtube.com/watch?v=KAiOaS2H5kE)
 
