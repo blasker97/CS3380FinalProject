@@ -1,0 +1,90 @@
+body {
+  margin: 10px;
+  font-family: georgia;
+  background: url(https://twu.edu/media/images/golf/golf-course.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%
+}
+
+h1{
+  padding-top: 30px;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse; 
+}
+
+th, td {
+	padding: 4px;
+}
+
+th { 
+  background: rgba(0, 120, 0, 0.5); 
+}
+
+td {
+  background: rgba(153, 255, 51, 0.5);
+}
+
+.scorecard{
+	color: #ffffff;
+	font-size: 15px;
+	text-align: center;
+}
+
+
+.websiteInfo{
+	color: #ffffff;
+	text-align: center
+}
+
+.alignmentOnly{
+	align-content: center;
+}
+
+a.golfButton:link, a.golfButton:visited, a.golfButton:active {
+	color: black;
+	font-size: 1.2em;
+	text-decoration: none;
+	padding-right: 2px;
+	border: 1px solid  rgb(0, 120, 0);
+}
+
+a.golfButton:hover {	
+  background-color: rgba(153, 255, 51,0.5); 
+}
+
+form {
+  background-color: rgba(0, 120, 0, 0.5)
+	border: 1px solid #4bc;
+	padding: px;
+}
+
+.gamesPlayed{
+	border: 1px solid	 rgba(0, 120, 0);
+	font-size: 1.2em;
+}
+
+p.message {
+	color: red;
+	padding: 4px;
+	border: 1px solid red;
+}
+
+a.order:link, a.order:visited, a.order:active {
+	color: black;
+	text-decoration: none;
+}
+
+a.order:hover {
+	color: #aa4444;
+}
+
+.average{
+
+  background-color: rgba(255, 255, 255, 1);
+}
+tr:hover {background-color: #f5f5f5;}
+//tr:nth-child(even) {background-color: rgba(255, 255, 255, 0.5);}
