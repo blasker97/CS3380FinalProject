@@ -47,19 +47,24 @@ CREATE TABLE games (
 
 SQL statement for Creating a game: 
 ```SQL
-INSERT INTO games(hole1, hole2, hole3, hole4, hole5, hole6, hole7, hole8, hole9, addDate, userID) VALUES ('$hole1Escaped', '$hole2Escaped', '$hole3Escaped', '$hole4Escaped', '$hole5Escaped', '$hole6Escaped', '$hole7Escaped', '$hole8Escaped', '$hole9Escaped', NOW(), '$userIDEscaped')
+INSERT INTO games(hole1, hole2, hole3, hole4, hole5, hole6, hole7, hole8, hole9, addDate, userID) VALUES ('$hole1Escaped', '$hole2Escaped', '$hole3Escaped', '$hole4Escaped', '$hole5Escaped', '$hole6Escaped', '$hole7Escaped', '$hole8Escaped', '$hole9Escaped', NOW(), '$userIDEscaped');
 ```
 
 #### Read: The user can read data back through the game history page. There the user can order the rounds by date played, hole(1-9) score, and total score.
 
-SQL statement for Reading Totals: 
-```SQL
-SELECT * FROM games WHERE userID = $userIDEscaped GROUP BY id ORDER BY SUM(hole1 + hole2 + hole3 + hole4 + hole5 + hole6 + hole7 + hole8 + hole9) $orderDirectionEscaped
-```
 SQL statement for Reading a Game:
 ```SQL
-SELECT * FROM games WHERE userId = '$userIDEscaped' AND id = '$idEscaped' ORDER BY '$userIDEscaped' 
+SELECT * FROM games WHERE userId = '$userIDEscaped' AND id = '$idEscaped' ORDER BY '$userIDEscaped';
 ```
+SQL statement for Reading Totals: 
+```SQL
+SELECT * FROM games WHERE userID = $userIDEscaped GROUP BY id ORDER BY SUM(hole1 + hole2 + hole3 + hole4 + hole5 + hole6 + hole7 + hole8 + hole9) $orderDirectionEscaped;
+```
+ SQL statement for Reading Averages: 
+ ```SQL
+SELECT AVG(hole1), AVG(hole2), AVG(hole3), AVG(hole4), AVG(hole5), AVG(hole6), AVG(hole7), AVG(hole8), AVG(hole9), SUM(hole1+hole2+hole3+hole4+hole5+hole6+hole7+hole8+hole9)/COUNT(*) FROM games WHERE userID = $userIDEscaped; 
+```
+
 #### Update: The user can *update* records (adjust scores on individual holes) via the round's corresponding **Edit** button on the game history page.
 
 SQL statement for Updating a game: 
@@ -71,7 +76,7 @@ UPDATE games SET hole1 = '$hole1Escaped', hole2 = '$hole2Escaped', hole3 = '$hol
 
 SQL statement for Deleting a game: 
 ```SQL
-DELETE FROM games WHERE userID = $userIDEscaped AND id = $idEscaped
+DELETE FROM games WHERE userID = $userIDEscaped AND id = $idEscaped;
 ```
 
 ### Video: 
